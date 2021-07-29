@@ -1,9 +1,10 @@
 const Knex = require("knex");
 const dbConfig = require("../../config/db");
 const knex = Knex(dbConfig);
+const reviewsService = require("../services/reviews")
 
 function findAll(req, res) {
-    knex.raw("SELECT * FROM reviews")
+    reviewsService.findAll()
     .then(function(results) {
         res.send(results.rows);
     })
@@ -17,7 +18,7 @@ console.log('fetching restaurants');
 async function findAllByRestaurantId(req, res) {
     const restaurantId = req.params.restaurant_id;
     try {
-        const results = await knex.raw("SELECT reviews.review_id, restaurants.restaurant_name, reviews.review_text FROM reviews INNER JOIN restaurants ON reviews.restaurant_id = restaurants.restaurant_id WHERE restaurants.restaurant_id = ?", [restaurantId])
+        const results = await reviewsService.findAllByRestaurantId(restaurantId);
         res.send(results.rows);
     } catch(error) {
         console.log(error);
@@ -31,18 +32,14 @@ async function create(req, res) {
     if (doesReviewHaveSwearWords === true) {
         res.status(400).send('No swear words allowed');
     } else {
-        const newReview = await knex.raw('INSERT INTO reviews (rating, review_text, user_id, restaurant_id) VALUES (?, ?, ?, ?) RETURNING *', [
-            incomingReview.rating,
-            incomingReview.review_text,
-            incomingReview.user_id,
-            incomingReview.restaurant_id]);
+        const newReview = await reviewsService.create(incomingReview);
         res.send(newReview);
     }
 }
 
 async function remove(req, res) {
     const deleteReview = req.params.review_id;
-    await knex.raw('DELETE FROM reviews WHERE review_id = ?', [deleteReview]);
+    await reviewsService.remove(deleteReview);
     res.send('review deleted');
 }
 
