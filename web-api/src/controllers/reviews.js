@@ -1,6 +1,3 @@
-const Knex = require("knex");
-const dbConfig = require("../../config/db");
-const knex = Knex(dbConfig);
 const reviewsService = require("../services/reviews")
 
 function findAll(req, res) {

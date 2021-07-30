@@ -1,7 +1,3 @@
-const { IncomingMessage } = require("http");
-const Knex = require("knex");
-const dbConfig = require("../../config/db");
-const knex = Knex(dbConfig);
 const restaurantsData = require("../data_access/restaurants");
 
 function findAll() {
