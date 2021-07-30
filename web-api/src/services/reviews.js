@@ -8,7 +8,7 @@ function findAllByRestaurantId(restaurantId) {
     return reviewsData.findAllByRestaurantId(restaurantId);
 }
 
-function create() {
+function create(incomingReview) {
     return reviewsData.create(incomingReview);
 }
 

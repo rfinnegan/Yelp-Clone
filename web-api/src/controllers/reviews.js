@@ -25,7 +25,7 @@ async function findAllByRestaurantId(req, res) {
 
 async function create(req, res) {
     const incomingReview = req.body;
-    const doesReviewHaveSwearWords = incomingReview.indexOf('fuck') > -1;
+    const doesReviewHaveSwearWords = incomingReview.review_text.indexOf('fuck') > -1;
     if (doesReviewHaveSwearWords === true) {
         res.status(400).send('No swear words allowed');
     } else {
