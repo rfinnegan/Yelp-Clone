@@ -12,7 +12,7 @@ function create(incomingReview) {
     return reviewsData.create(incomingReview);
 }
 
-function remove() {
+function remove(deleteReview) {
     return reviewsData.remove(deleteReview);
 }
 
