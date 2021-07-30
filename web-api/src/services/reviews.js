@@ -1,4 +1,3 @@
-const dbConfig = require("../../config/db");
 const reviewsData = require("../data_access/reviews");
 
 function findAll() {
