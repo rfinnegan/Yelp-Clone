@@ -2,13 +2,14 @@ const Knex = require("knex");
 const dbConfig = require("../../config/db");
 const knex = Knex(dbConfig);
 
-function findAll() {
-    return knex.raw("SELECT * FROM restaurants");
+async function findAll() {
+    const results = await knex.raw("SELECT * FROM restaurants");
+    return results.rows;
 }
 
 async function findById(searchID) {
     const results = await knex.raw("SELECT * FROM restaurants WHERE restaurant_id = ?", searchID);
-    return results
+    return results.rows[0];
 }
 
 async function create(incomingRestaurant) {
@@ -25,7 +26,7 @@ async function create(incomingRestaurant) {
 async function findByName(searchName) {
     const wildCardSearchName = '%' + searchName + '%';
     const results = await knex.raw("SELECT * FROM restaurants WHERE restaurant_name ILIKE ?;", [wildCardSearchName]);
-    return results
+    return results.rows;
 }
 
 async function update(restaurantId, updatingRestaurant) {

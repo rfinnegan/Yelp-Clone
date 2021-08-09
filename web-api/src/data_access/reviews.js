@@ -2,13 +2,14 @@ const Knex = require("knex");
 const dbConfig = require("../../config/db");
 const knex = Knex(dbConfig);
 
-function findAll() {
-    return knex.raw("SELECT * FROM reviews");
+async function findAll() {
+    const results = await knex.raw("SELECT * FROM reviews");
+    return results.rows;
 }
 
 async function findAllByRestaurantId(restaurantId) {
     const results = await knex.raw("SELECT reviews.review_id, restaurants.restaurant_name, reviews.review_text FROM reviews INNER JOIN restaurants ON reviews.restaurant_id = restaurants.restaurant_id WHERE restaurants.restaurant_id = ?", [restaurantId]);
-    return results;
+    return results.rows;
 }
 
 async function create(incomingReview) {
