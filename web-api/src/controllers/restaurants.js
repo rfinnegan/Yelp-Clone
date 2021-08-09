@@ -3,12 +3,12 @@ const restaurantService = require("../services/restaurants");
 function findAll(req, res) {
     restaurantService.findAll()
         .then(function(results) {
-            res.send(results.rows);
+            res.send(results);
         })
         .catch(function(error) {
             console.log(error);
             res.status(500).send('internal server error');
-        })
+        });
     console.log('fetching restaurants');
 }
 
@@ -16,7 +16,7 @@ async function findById(req, res) {
     try {
         const searchID = req.params.id;
         const results = await restaurantService.findById(searchID);
-        res.send(results.rows[0]);
+        res.send(results);
     } catch(error) {
         console.log(error);
         res.status(500).send('internal server error');
@@ -33,7 +33,7 @@ async function findByName(req, res) {
     try {
         const searchName = req.params.searchName;
         const results = await restaurantService.findByName(searchName);
-        res.send(results.rows);
+        res.send(results);
     } catch(error) {
         console.log(error);
         res.status(500).send('internal server error');

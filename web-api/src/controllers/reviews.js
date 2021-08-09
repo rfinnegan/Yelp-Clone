@@ -3,7 +3,7 @@ const reviewsService = require("../services/reviews")
 function findAll(req, res) {
     reviewsService.findAll()
     .then(function(results) {
-        res.send(results.rows);
+        res.send(results);
     })
     .catch(function(error) {
         console.log(error);
@@ -16,7 +16,7 @@ async function findAllByRestaurantId(req, res) {
     const restaurantId = req.params.restaurant_id;
     try {
         const results = await reviewsService.findAllByRestaurantId(restaurantId);
-        res.send(results.rows);
+        res.send(results);
     } catch(error) {
         console.log(error);
         res.status(500).send ('internal server error');
