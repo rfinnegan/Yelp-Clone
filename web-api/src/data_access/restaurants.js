@@ -3,12 +3,12 @@ const dbConfig = require("../../config/db");
 const knex = Knex(dbConfig);
 
 async function findAll() {
-    const results = await knex.raw("SELECT * FROM restaurants");
+    const results = await knex.raw("SELECT restaurant_id AS id, restaurant_name AS name, address, city, phone_number, state, zip FROM restaurants");
     return results.rows;
 }
 
 async function findById(searchID) {
-    const results = await knex.raw("SELECT * FROM restaurants WHERE restaurant_id = ?", searchID);
+    const results = await knex.raw("SELECT restaurant_name AS name, address, city, phone_number, state, zip FROM restaurants WHERE restaurant_id = ?", searchID);
     return results.rows[0];
 }
 

@@ -14,7 +14,7 @@ function findAll(req, res) {
 
 async function findById(req, res) {
     try {
-        const searchID = req.params.id;
+        const searchID = parseInt(req.params.id);
         const results = await restaurantService.findById(searchID);
         res.send(results);
     } catch(error) {
