@@ -1,7 +1,7 @@
 import service from "../../services"
-import Models from '../../models'
+import models from '../../models'
 
-const { Restaurant } = Models
+const { Restaurant } = models
 
 export const initializeRestaurants = async () => {
   const restaurants = await service.getRestaurants()

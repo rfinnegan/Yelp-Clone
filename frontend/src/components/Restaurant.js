@@ -1,4 +1,5 @@
 import actions from '../store/actions'
+import CreateReview from './CreateReview'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
@@ -38,8 +39,15 @@ const Restaurant = () => {
         <div>
           <h2>reviews</h2>
           <div>
-  
+            {reviews.map(review => 
+              <div key={review.id}>
+                <div>
+                  {review.review_text}
+                </div>
+              </div>
+              )}
           </div>
+            <CreateReview />
         </div>
       </div>
     )

@@ -1,13 +1,18 @@
 import { useDispatch } from 'react-redux'
-import { createNewRestaurant } from '../store/actions/restaurants'
+import actions from '../store/actions'
+
+const { createNewRestaurant } = actions
 
 const CreateRestaurant = () => {
   const dispatch = useDispatch;
   const addRestaurant = async (event) => {
     const name = event.target.name.value
     const address = event.target.address.value
-
-    const restaurant = { name, address, }
+    const city = event.target.city.value
+    const state = event.target.state.value
+    const zip = event.target.zip.value
+    const phone = event.target.phone.value
+    const restaurant = { name, address, city, state, zip, phone }
     event.target.value = ''
     event.preventDefault()
     const newRestaurant = await createNewRestaurant(restaurant)

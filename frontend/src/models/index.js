@@ -12,4 +12,16 @@ const Restaurant = {
   }
 }
 
-export default { Restaurant }
+const Review = {
+  create(data) {
+    return {
+      restaurant_name: data.name,
+      review_id: data.id,
+      review_text: data.text
+    }
+  }
+}
+
+const models = { Restaurant, Review }
+
+export default models

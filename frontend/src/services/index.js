@@ -28,6 +28,12 @@ const getReviewsByRestaurantId = async (id) => {
   return response.data
 }
 
-const service = {getRestaurants, getRestaurantById, createNewRestaurant, getReviews, getReviewsByRestaurantId}
+const createReview = async () => {
+  const object = {}
+  const response = await axios.post(baseUrl, object)
+  return response.data
+}
+
+const service = {getRestaurants, getRestaurantById, createNewRestaurant, getReviews, getReviewsByRestaurantId, createReview}
 
 export default service;
