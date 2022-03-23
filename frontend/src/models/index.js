@@ -15,6 +15,7 @@ const Restaurant = {
 const Review = {
   create(data) {
     return {
+      rating: data.rating,
       restaurant_name: data.name,
       review_id: data.id,
       review_text: data.text

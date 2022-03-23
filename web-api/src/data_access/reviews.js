@@ -8,7 +8,7 @@ async function findAll() {
 }
 
 async function findAllByRestaurantId(restaurantId) {
-    const results = await knex.raw("SELECT reviews.review_id, restaurants.restaurant_name, reviews.review_text FROM reviews INNER JOIN restaurants ON reviews.restaurant_id = restaurants.restaurant_id WHERE restaurants.restaurant_id = ?", [restaurantId]);
+    const results = await knex.raw("SELECT reviews.review_id, restaurants.restaurant_name, reviews.review_text, reviews.rating FROM reviews INNER JOIN restaurants ON reviews.restaurant_id = restaurants.restaurant_id WHERE restaurants.restaurant_id = ?", [restaurantId]);
     return results.rows;
 }
 

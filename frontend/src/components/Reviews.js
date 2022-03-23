@@ -9,7 +9,6 @@ const Reviews = () => {
   useEffect(() => {
     const initialize = async () => {
       const initialReviews = await initializeReviews()
-      console.log('init', initialReviews)
       dispatch(initialReviews)
     }
     initialize()
@@ -17,7 +16,6 @@ const Reviews = () => {
 
   const state = useSelector(state => state)
   const reviews = state.reviews
-  console.log('reviews', state.reviews)
 
   return (
     <div>

@@ -29,7 +29,7 @@ const Restaurant = () => {
   }, [restaurantId, dispatch])
 
   const restaurant = state.restaurants;
-  const reviews = state.reviews
+  const reviews = state.reviews;
 
     return (
       <div>
@@ -37,12 +37,13 @@ const Restaurant = () => {
         <div>{restaurant.address}, {restaurant.city}, {restaurant.state} {restaurant.zip}</div>
         <div>Phone Number: {restaurant.phone_number}</div>
         <div>
-          <h2>reviews</h2>
+          <h2>Reviews</h2>
           <div>
             {reviews.map(review => 
               <div key={review.id}>
                 <div>
                   {review.review_text}
+                  <div>rating: {review.rating}</div>
                 </div>
               </div>
               )}
