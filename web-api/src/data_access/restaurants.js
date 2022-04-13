@@ -21,6 +21,7 @@ async function create(incomingRestaurant) {
         incomingRestaurant.city, 
         incomingRestaurant.state, 
         incomingRestaurant.zip]);
+    return results.rows;
 }
 
 async function findByName(searchName) {

@@ -1,31 +1,35 @@
 import { useDispatch } from 'react-redux'
-import actions from '../store/actions'
+import actions from '../../store/actions'
+import './CreateRestaurant.css'
 
 const { createNewRestaurant } = actions
 
 const CreateRestaurant = () => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const addRestaurant = async (event) => {
-    const name = event.target.name.value
+    const restaurant_name = event.target.name.value
     const address = event.target.address.value
     const city = event.target.city.value
     const state = event.target.state.value
     const zip = event.target.zip.value
-    const phone = event.target.phone.value
-    const restaurant = { name, address, city, state, zip, phone }
+    const phone_number = event.target.phone.value
+    const restaurant = { restaurant_name, address, city, state, zip, phone_number }
     event.target.value = ''
     event.preventDefault()
+    console.log(restaurant)
     const newRestaurant = await createNewRestaurant(restaurant)
     dispatch(newRestaurant)
   }
 
   return (
-    <div>
+    <div className="add-container">
+      <div className="add-container-text">
       <h2>Add a New Restaurant</h2>
-      <form onSubmit={addRestaurant}>
-        <div className="add-new-container">
+      </div>
+      <form className="add-container-form" onSubmit={addRestaurant}>
+        <div className="add-input-container">
           <label htmlFor="name">Restaurant Name</label>
-          <input name="name" id="name" placeholder="Name"/>
+          <input name="name" id="restaurant" placeholder="Name"/>
 
           <label htmlFor="address">Address</label>
           <input name="address" id="address" placeholder="Address"/>

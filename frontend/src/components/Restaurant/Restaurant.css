@@ -1,0 +1,30 @@
+.restaurant-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.create-review-container {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.review-container {
+  text-align: left;
+  
+  border-style: solid;
+  border-color: rgb(0 0 0 / 60%);
+  border-width: 1px;
+  border-radius: .5em;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 60%);
+  margin-bottom: 1em;
+  padding: .5em;
+
+  
+  color: var(--black);
+}

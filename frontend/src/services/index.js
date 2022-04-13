@@ -12,9 +12,9 @@ const getRestaurantById = async (id) => {
   return response.data
 }
 
-const createNewRestaurant = async () => {
-  const object = {}
-  const response = await axios.post(baseUrl, object)
+const createNewRestaurant = async (restaurant) => {
+  const response = await axios.post(baseUrl + '/restaurants', restaurant)
+  console.log(response.data)
   return response.data
 }
 
@@ -28,12 +28,24 @@ const getReviewsByRestaurantId = async (id) => {
   return response.data
 }
 
-const createReview = async () => {
-  const object = {}
-  const response = await axios.post(baseUrl, object)
+const createReview = async (review) => {
+  const response = await axios.post(baseUrl + '/reviews', review)
   return response.data
 }
 
-const service = {getRestaurants, getRestaurantById, createNewRestaurant, getReviews, getReviewsByRestaurantId, createReview}
+const searchByName = async (searchName) => {
+  const response = await axios.get(baseUrl + '/restaurants/search/' + searchName)
+  return response.data
+}
+
+const service = {
+  getRestaurants,
+  getRestaurantById,
+  createNewRestaurant,
+  getReviews,
+  getReviewsByRestaurantId,
+  createReview,
+  searchByName
+}
 
 export default service;

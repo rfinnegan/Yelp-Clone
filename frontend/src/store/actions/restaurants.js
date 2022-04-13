@@ -21,9 +21,8 @@ export const getRestaurantById = async (id) => {
 
 export const createNewRestaurant = async (restaurant) => {
   const newRestaurant = await service.createNewRestaurant(restaurant)
-  const newlyCreatedRestaurant = Restaurant.create(newRestaurant)
   return {
     type: 'ADD_RESTAURANT',
-    data: newlyCreatedRestaurant
+    data: newRestaurant
   }
 }

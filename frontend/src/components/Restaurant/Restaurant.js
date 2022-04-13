@@ -1,8 +1,10 @@
-import actions from '../store/actions'
-import CreateReview from './CreateReview'
+import actions from '../../store/actions'
+import CreateReview from '../CreateReview/CreateReview'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
+
+import './Restaurant.css'
 
 const {getRestaurantById, getReviewsForRestaurant} = actions
 
@@ -18,9 +20,7 @@ const Restaurant = () => {
       dispatch(initById)
     }
     initializeById(restaurantId)
-  }, [restaurantId, dispatch])
-  
-  useEffect(() => {
+
     const getRestaurantReviews = async (restaurantId) => {
       const initReviews = await getReviewsForRestaurant(restaurantId)
       dispatch(initReviews)
@@ -32,23 +32,25 @@ const Restaurant = () => {
   const reviews = state.reviews;
 
     return (
-      <div>
+      <div className="restaurant-container">
         <h1>{restaurant.name}</h1>
         <div>{restaurant.address}, {restaurant.city}, {restaurant.state} {restaurant.zip}</div>
         <div>Phone Number: {restaurant.phone_number}</div>
         <div>
+          <div className="create-review-container">
+          <CreateReview />
+          </div>
           <h2>Reviews</h2>
           <div>
             {reviews.map(review => 
-              <div key={review.id}>
-                <div>
-                  {review.review_text}
-                  <div>rating: {review.rating}</div>
+              <div key={review.review_id}>
+                <div className="review-container">
+                  <strong>rating: {review.rating}</strong>
+                  <p>{review.review_text}</p>
                 </div>
               </div>
               )}
           </div>
-            <CreateReview />
         </div>
       </div>
     )
