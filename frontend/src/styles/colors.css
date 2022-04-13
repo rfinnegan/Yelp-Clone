@@ -1,0 +1,15 @@
+:root {
+  --black: rgb(45, 46, 47);
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1.5em;
+}

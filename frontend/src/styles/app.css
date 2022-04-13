@@ -1,0 +1,37 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+#root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100%;
+  background-color: var(--background-black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.router {
+  flex: 1;
+  /* max-width: calc(100% - 6em);
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 3em;
+  padding-bottom: 2em; */
+  background-color: white;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}

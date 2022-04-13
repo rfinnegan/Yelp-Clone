@@ -1,12 +1,14 @@
 require('dotenv').config({ path: '.env' });
-const Knex = require("knex");
 const express = require("express");
 const app = express();
-const dbConfig = require("../config/db");
 const bodyParser = require("body-parser");
 const restaurantController = require("./controllers/restaurants");
 const reviewController = require("./controllers/reviews");
-const knex = Knex(dbConfig);
+const cors = require('cors');
+
+app.use(cors({
+    origin: 'http://localhost:3000',
+}));
 app.use(bodyParser.json());
 
 app.listen(8080, function() {

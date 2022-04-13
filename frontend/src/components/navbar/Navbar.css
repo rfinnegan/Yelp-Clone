@@ -1,0 +1,20 @@
+.navbar-container {
+  max-width: max;
+  border-bottom: 1px solid rgb(219, 37, 9);
+  margin: 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  text-align: right;
+}
+
+.navbar-item:hover {
+  color: rgb(219, 37, 9);
+}
+
+.navbar-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}

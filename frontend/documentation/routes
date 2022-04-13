@@ -1,0 +1,4 @@
+/restaurants
+  Should display all restaurants (Maybe just name and rating?)
+/restaurants/:id
+  Should display ALL information for one restaurant (and maybe reviews?)

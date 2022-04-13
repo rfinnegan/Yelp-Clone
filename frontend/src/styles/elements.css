@@ -1,0 +1,49 @@
+h1 {
+  text-align: center;
+}
+
+a:hover {
+  color: red;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+textarea {
+  margin-bottom: 1.5em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-style: solid;
+  border-color: rgb(0 0 0 / 60%);
+  border-width: 1px;
+  border-radius: .5em;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 60%);
+  resize: none;
+  padding: .5em;
+}
+
+input {
+  padding: .5em;
+  margin-bottom: 1.5em;
+  border: 1px solid rgb(219, 37, 9);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.1em;
+  border-radius: .5em;
+}
+
+button {
+  padding: .5em;
+  border-style: solid;
+  border-color: rgb(0 0 0 / 60%);
+  border-width: 1px;
+  border-radius: .5em;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 60%);
+  margin-bottom: 1em;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: rgb(219, 37, 9);
+  color: white;
+}

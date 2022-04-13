@@ -1,0 +1,19 @@
+.add-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.add-container-text {
+  flex-grow: 2;
+}
+
+.add-container-form {
+  flex-grow: 1;
+}
+
+.add-input-container {
+  display: flex;
+  flex-direction: column;
+}

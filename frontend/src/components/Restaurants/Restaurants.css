@@ -1,0 +1,11 @@
+.restaurants-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.restaurants-content {
+  text-align: center;
+  text-decoration: none;
+  padding-bottom: 1em;
+}
