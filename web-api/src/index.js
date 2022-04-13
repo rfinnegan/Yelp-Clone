@@ -15,12 +15,11 @@ app.listen(8080, function() {
     console.log("I'm listening on port 8080");
 });
 
-app.get("/restaurants", restaurantController.findAll);
+app.get("/restaurants", restaurantController.find);
 app.get("/restaurants/:id", restaurantController.findById);
 // create new restaurant
 app.post("/restaurants", restaurantController.create);
-// allow user to search for restaurant by name & partial name
-app.get("/restaurants/search/:searchName", restaurantController.findByName);
+
 // put request to update a restaurant
 app.put("/restaurants/:restaurant_id", restaurantController.update);
 

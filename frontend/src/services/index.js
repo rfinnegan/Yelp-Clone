@@ -34,7 +34,7 @@ const createReview = async (review) => {
 }
 
 const searchByName = async (searchName) => {
-  const response = await axios.get(baseUrl + '/restaurants/search/' + searchName)
+  const response = await axios.get(baseUrl + '/restaurants?search=' + searchName)
   return response.data
 }
 

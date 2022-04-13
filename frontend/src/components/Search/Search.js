@@ -22,14 +22,14 @@ const Search = () => {
       <div className="search-bar-container">
         <label htmlFor="search"></label>
         <input className="search-input" name="search" id="search" placeholder="Find restaurants..." onChange={handleChange} />
-        <button className="search-button" type="submit">Search</button>
+        {/* <button className="search-button" type="submit">Search</button> */}
       </div>
       <div>
         <div>
           {searchResults.map(result =>
-            <div key={result.restaurant_id}>
+            <div key={result.id}>
               <div className="results-container">
-                <a href={`/restaurants/${result.restaurant_id}`}>{result.restaurant_name}</a>
+                <a href={`/restaurants/${result.id}`}>{result.name}</a>
               </div>
             </div>
           )}

@@ -1,5 +1,11 @@
 const restaurantService = require("../services/restaurants");
 
+function find(req, res) {
+    const shouldSearchByName = !!req.query.search;
+    console.log('search for name', shouldSearchByName)
+    return shouldSearchByName ? findByName(req, res) : findAll(req, res);
+}
+
 function findAll(req, res) {
     restaurantService.findAll()
         .then(function(results) {
@@ -31,7 +37,7 @@ async function create(req, res) {
 
 async function findByName(req, res) {
     try {
-        const searchName = req.params.searchName;
+        const searchName = req.query.search;
         const results = await restaurantService.findByName(searchName);
         res.send(results);
     } catch(error) {
@@ -48,6 +54,7 @@ async function update(req, res) {
 }
 
 module.exports = {
+    find,
     findAll,
     findById,
     create,
