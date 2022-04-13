@@ -26,7 +26,7 @@ async function create(incomingRestaurant) {
 
 async function findByName(searchName) {
     const wildCardSearchName = '%' + searchName + '%';
-    const results = await knex.raw("SELECT * FROM restaurants WHERE restaurant_name ILIKE ?;", [wildCardSearchName]);
+    const results = await knex.raw("SELECT restaurant_id AS id, restaurant_name AS name, address, city, phone_number, state, zip FROM restaurants WHERE restaurant_name ILIKE ?;", [wildCardSearchName]);
     return results.rows;
 }
 
