@@ -7,7 +7,7 @@ const reviewController = require("./controllers/reviews");
 const cors = require('cors');
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'https://yelp-clone-frontend-7rh79.ondigitalocean.app']
 }));
 app.use(bodyParser.json());
 
