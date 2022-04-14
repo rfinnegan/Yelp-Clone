@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+  loto-api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+    volumes:
+      - ./src:/usr/src/app/src:consistent
+      - ./test:/usr/src/app/test:consistent
+    ports:
+      - 8080:8080
+      - 9229:9229

@@ -11,8 +11,8 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 
-app.listen(8080, function() {
-    console.log("I'm listening on port 8080");
+app.listen(process.env.API_PORT, function() {
+    console.log(`I'm listening on port ${process.env.API_PORT}`);
 });
 
 app.get("/restaurants", restaurantController.find);
