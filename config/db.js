@@ -1,5 +1,13 @@
 require('dotenv').config({ path: '../.env' });
-console.log(process.env.DB_CLIENT);
+
+const x509Certificate = process.env.DB_SSL_CERT;
+const ssl = x509Certificate
+  ? {
+    rejectUnauthorized: false,
+    ca: x509Certificate
+  }
+  : null;
+
 const config = {
     client: process.env.DB_CLIENT,
     connection: {
@@ -8,6 +16,7 @@ const config = {
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE_NAME,
       port: process.env.DB_PORT,
+      ssl,
     },
     pool: {
       min: 2,
